@@ -33,8 +33,16 @@ const AddEmployee = ({ emp, setEmp }) => {
     // setEmp(data);
 
     setEmp([...emp, addFormData]);
-    let inputs = document.querySelectorAll("input");
-    inputs.forEach((input) => (input.value = ""));
+    setAddFormData({
+      id: emp.length + 1,
+      name: "",
+      position: "",
+      salary: "",
+    });
+    // let inputs = document.querySelectorAll("input");
+    // inputs.forEach((input) => (input.value = ""));
+
+    // console.log(inputs);
   };
   return (
     <Fragment>
