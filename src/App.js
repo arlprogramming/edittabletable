@@ -1,32 +1,31 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "h8k-components";
 
 import { AddEmployee, Employee } from "./components";
 
 const title = "Editable Table";
 
-const employeesList = [
-  {
-    id: 0,
-    name: "Chris Hatch",
-    position: "Software Developer",
-    salary: 130000,
-  },
-  {
-    id: 1,
-    name: "Elizabeth Montgomery",
-    position: "Lead Research Engineer",
-    salary: 70000,
-  },
-  {
-    id: 2,
-    name: "Aiden Shaw",
-    position: "Machine Learning Engineer",
-    salary: 80000,
-  },
-];
-
 const App = () => {
+  const [employeesList, setemployeeList] = useState([
+    {
+      id: 1,
+      name: "Chris Hatch",
+      position: "Software Developer",
+      salary: 130000,
+    },
+    {
+      id: 2,
+      name: "Elizabeth Montgomery",
+      position: "Lead Research Engineer",
+      salary: 70000,
+    },
+    {
+      id: 3,
+      name: "Aiden Shaw",
+      position: "Machine Learning Engineer",
+      salary: 80000,
+    },
+  ]);
   return (
     <Fragment>
       <h8k-navbar header={title}></h8k-navbar>
@@ -34,7 +33,6 @@ const App = () => {
         <table data-testid="table">
           <thead>
             <tr>
-              <th>Number</th>
               <th>Name</th>
               <th>Position</th>
               <th>Salary</th>
@@ -48,7 +46,7 @@ const App = () => {
               </tr>
             ))}
             <tr>
-              <AddEmployee emp={employeesList} />
+              <AddEmployee emp={employeesList} setEmp={setemployeeList} />
             </tr>
           </tbody>
         </table>
