@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { uid } from "uid";
+// import { uid } from "uid";
 
 const AddEmployee = ({ emp, setEmp }) => {
+  // console.log(emp.length + 1);
   const [addFormData, setAddFormData] = useState({
-    id: "",
+    id: emp.length + 1,
     name: "",
     position: "",
     salary: "",
